@@ -1,0 +1,22 @@
+<section class="action-buttons">
+  <button mat-stroked-button color="primary" routerLink="add">Dodaj kategorię</button>
+</section>
+<table class="table-details">
+  <tr>
+    <th>Id</th>
+    <th>Nazwa</th>
+    <th>Akcje</th>
+  </tr>
+  <tr *ngFor="let category of productCategories; let rowIndex = index">
+    <td>
+      {{ category.id }}
+    </td>
+    <td>
+      {{ category.name }}
+    </td>
+    <td>
+      <button (click)="removeProductCategory(category.id, rowIndex)" matTooltip="Usuń kategorię" mat-button><mat-icon>delete</mat-icon></button>
+      <button [routerLink]="['/', 'admin-panel', 'product-categories', 'edit', category.id]" matTooltip="Edytuj kategorię" mat-button><mat-icon>edit</mat-icon></button>
+    </td>
+  </tr>
+</table>

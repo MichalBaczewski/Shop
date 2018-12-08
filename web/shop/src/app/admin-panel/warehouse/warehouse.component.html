@@ -1,0 +1,29 @@
+<section class="action-buttons">
+  <button mat-stroked-button color="primary" routerLink="add">Dodaj produkt</button>
+</section>
+<table class="table-details">
+  <tr>
+    <th>Id</th>
+    <th>Nazwa</th>
+    <th>Cena</th>
+    <th>Ilość w magazynie</th>
+    <th>Akcje</th>
+  </tr>
+  <tr *ngFor="let product of products; let rowIndex = index">
+    <td>
+      {{ product.id }}
+    </td>
+    <td>
+      {{ product.name }}
+    </td>
+    <td>
+      {{ product.price }}
+    </td>
+    <td>
+      {{ product.count }}
+    </td>
+    <td>
+      <button matTooltip="Aktualizuj stan magazynowy" mat-button><mat-icon>edit</mat-icon></button>
+    </td>
+  </tr>
+</table>
