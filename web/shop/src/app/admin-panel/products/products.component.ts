@@ -19,4 +19,10 @@ export class ProductsComponent implements OnInit {
     this.products= this.route.snapshot.data['products'];
   }
 
+  removeProduct(productId: number, index: number) {
+    this.productService.removeProduct(productId).subscribe(() => {
+      this.products.splice(index, 1);
+    });
+  }
+
 }

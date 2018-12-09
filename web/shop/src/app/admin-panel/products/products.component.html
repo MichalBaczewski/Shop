@@ -23,7 +23,7 @@
       {{ product.price }}
     </td>
     <td>
-      <button matTooltip="Usuń produkt" mat-button><mat-icon>delete</mat-icon></button>
+      <button (click)="removeProduct(product.id, rowIndex)" matTooltip="Usuń produkt" mat-button><mat-icon>delete</mat-icon></button>
       <button matTooltip="Edytuj produkt" mat-button><mat-icon>edit</mat-icon></button>
     </td>
   </tr>

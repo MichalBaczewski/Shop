@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
 import {ProductsComponent} from "./admin-panel/products/products.component";
@@ -9,7 +9,7 @@ import {EditProductComponent} from "./admin-panel/edit-product/edit-product.comp
 import {OrdersComponent} from "./admin-panel/orders/orders.component";
 import {WarehouseComponent} from "./admin-panel/warehouse/warehouse.component";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
-import {ProductResolve} from "./shared/resolve/product.resolve";
+import {ProductsResolve} from "./shared/resolve/product.resolve";
 
 const routes: Routes = [
   {
@@ -42,7 +42,7 @@ const routes: Routes = [
         path: 'products',
         component: ProductsComponent,
         resolve: {
-          products: ProductResolve
+          products: ProductsResolve
         }
       },
       {

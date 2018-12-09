@@ -18,7 +18,7 @@ import { WarehouseComponent } from './admin-panel/warehouse/warehouse.component'
 import {ProductCategoryService} from "./shared/service/product-category.service";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
 import {ProductService} from "./shared/service/product.service";
-import {ProductResolve} from "./shared/resolve/product.resolve";
+import {ProductResolve, ProductsResolve} from "./shared/resolve/product.resolve";
 
 @NgModule({
   declarations: [
@@ -45,6 +45,7 @@ import {ProductResolve} from "./shared/resolve/product.resolve";
     ProductCategoriesResolve,
     ProductCategoryResolve,
     ProductService,
+    ProductsResolve,
     ProductResolve,
   ],
   bootstrap: [MainComponent]
