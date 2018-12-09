@@ -27,6 +27,20 @@ html, body {
   margin: 20px 16px;
 }
 
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-width {
+  text-align: center;
+  width: 100%;
+}
+
+.half-width {
+  text-align: center;
+  width: 45%;
+}
 .table-details {
   width: 100%;
   border-spacing: 0;

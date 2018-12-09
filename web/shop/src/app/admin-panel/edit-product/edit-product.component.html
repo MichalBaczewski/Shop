@@ -6,14 +6,15 @@
   <mat-card-content>
     <section class="form-section">
       <form>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="half-width">
           <input [(ngModel)]="product.name" name="name" matInput placeholder="Nazwa produktu">
         </mat-form-field>
-        <mat-form-field class="example-full-width">
+
+        <mat-form-field class="half-width">
           <input [(ngModel)]="product.price" name="price" matInput placeholder="Cena produktu">
         </mat-form-field>
         <div class="example-container">
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="full-width">
           <input [(ngModel)]="product.description" name="description" matInput placeholder="Opis produktu">
         </mat-form-field>
         </div>
