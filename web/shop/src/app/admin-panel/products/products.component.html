@@ -23,8 +23,8 @@
       {{ product.price }}
     </td>
     <td>
-      <button matTooltip="Usuń produkt" mat-button><mat-icon>delete</mat-icon></button>
-      <button matTooltip="Edytuj produkt" mat-button><mat-icon>edit</mat-icon></button>
+      <button (click)="removeProduct(product.id, rowIndex)" matTooltip="Usuń Produkt" mat-button><mat-icon>delete</mat-icon></button>
+      <button [routerLink]="['/', 'admin-panel', 'products', 'edit', product.id]" matTooltip="Edytuj Produkt" mat-button><mat-icon>edit</mat-icon></button>
     </td>
   </tr>
 </table>

@@ -3,6 +3,7 @@ import {ProductModel} from "../model/product.model";
 import {Observable, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {ProductCategoryModel} from "../model/product-category.model";
 
 
 @Injectable({
@@ -23,4 +24,25 @@ export class ProductService {
     }));
   }
 
+  public getProduct(id: number): Observable<ProductModel> {
+    return this.http.get("/api/products/" + id).pipe(map((response: ProductModel) => {
+      return response;
+    }));
+  }
+
+  public removeProduct(id: number) {
+    return this.http.delete("/api/products/" + id);
+  }
+
+  public saveProduct(product: ProductModel): Observable<ProductModel> {
+    if (product.id) {
+      return this.http.put("/api/products/" + product.id, product).pipe(map((response: ProductModel) => {
+        return response;
+      }));
+    } else {
+      return this.http.post("/api/products", product).pipe(map((response: ProductModel) => {
+        return response;
+      }));
+    }
+  }
 }
