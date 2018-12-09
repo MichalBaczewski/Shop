@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {WarehouseModel} from "../../shared/model/warehouse.model";
+import {WarehouseService} from "../../shared/service/warehouse.service";
 
 @Component({
   selector: 'app-warehouse',
@@ -7,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarehouseComponent implements OnInit {
 
-  products = [];
+  positions:Array<WarehouseModel> = [];
 
-  constructor() { }
+  constructor(private warehouseService: WarehouseService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.positions= this.route.snapshot.data['positions'];
   }
 
 }

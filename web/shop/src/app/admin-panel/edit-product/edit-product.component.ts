@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ProductModel} from "../../shared/model/product.model";
 import {ProductService} from "../../shared/service/product.service";
 import {ActivatedRoute} from "@angular/router";
-import {Location, Location} from "@angular/common";
 import {ProductCategoryModel} from "../../shared/model/product-category.model";
+import {Location} from "@angular/common";
 
 
 @Component({

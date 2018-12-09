@@ -1,5 +1,5 @@
 <section class="action-buttons">
-  <button mat-stroked-button color="primary" routerLink="add">Dodaj produkt</button>
+  <button mat-stroked-button color="primary" routerLink="add">Dodaj nowy produkt</button>
 </section>
 <table class="table-details">
   <tr>
@@ -7,6 +7,7 @@
     <th>Nazwa</th>
     <th>Kategoria</th>
     <th>Cena</th>
+    <th>Opis</th>
     <th>Akcje</th>
   </tr>
   <tr *ngFor="let product of products; let rowIndex = index">
@@ -21,6 +22,9 @@
     </td>
     <td>
       {{ product.price }}
+    </td>
+    <td>
+      {{ product.description }}
     </td>
     <td>
       <button (click)="removeProduct(product.id, rowIndex)" matTooltip="Usuń produkt" mat-button><mat-icon>delete</mat-icon></button>
