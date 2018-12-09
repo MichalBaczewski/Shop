@@ -9,7 +9,7 @@ import {EditProductComponent} from "./admin-panel/edit-product/edit-product.comp
 import {OrdersComponent} from "./admin-panel/orders/orders.component";
 import {WarehouseComponent} from "./admin-panel/warehouse/warehouse.component";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
-import {ProductsResolve} from "./shared/resolve/product.resolve";
+import {ProductResolve, ProductsResolve} from "./shared/resolve/product.resolve";
 
 const routes: Routes = [
   {
@@ -47,7 +47,18 @@ const routes: Routes = [
       },
       {
         path: 'products/add',
-        component: EditProductComponent
+        component: EditProductComponent,
+        resolve: {
+          productCategories: ProductCategoriesResolve
+        }
+      },
+      {
+        path: 'products/edit/:id',
+        component: EditProductComponent,
+        resolve: {
+          product: ProductResolve,
+          productCategories: ProductCategoriesResolve
+        }
       },
       {
         path: 'product-categories',

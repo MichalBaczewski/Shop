@@ -1,3 +1,42 @@
-<p>
-  edit-product works!
-</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Produkt</mat-card-title>
+    <mat-card-subtitle>Dodawanie / Edycja</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="form-section">
+      <form>
+        <div>
+          <mat-form-field class="half-width">
+            <input [(ngModel)]="product.name" name="name" matInput placeholder="Nazwa produktu">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width">
+            <input [(ngModel)]="product.description" name="description" matInput placeholder="Opis produktu">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="half-width">
+            <input [(ngModel)]="product.price" name="price" matInput placeholder="Cena produktu">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-select [(ngModel)]="product.category.id" name="category_id" placeholder="Kategoria produktu">
+              <mat-option *ngFor="let category of productCategories" [value]="category.id">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+    </section>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-row">
+      <button (click)="back()" mat-flat-button color="accent">Wróć</button>
+      <button (click)="saveProduct()" mat-flat-button color="primary">Zapisz</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

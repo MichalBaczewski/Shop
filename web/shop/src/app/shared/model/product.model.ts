@@ -1,7 +1,9 @@
+import {ProductCategoryModel} from "./product-category.model";
+
 export class ProductModel {
   id: number = null;
   name: string = null;
   description: string = null;
   price: number = null;
-  category: ProductModel = new ProductModel();
+  category: ProductCategoryModel = new ProductCategoryModel();
 }

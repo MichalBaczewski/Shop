@@ -48,3 +48,18 @@ html, body {
    background: #f5f5f5;
 }
 
+.form-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-width {
+  text-align: center;
+  width: 100%;
+}
+
+.half-width {
+  text-align: center;
+  width: 45%;
+}
+
