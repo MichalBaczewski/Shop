@@ -13,7 +13,6 @@ public class ProductConverter implements Converter<ProductEntity, ProductDTO> {
         this.productCategoryConverter = productCategoryConverter;
     }
 
-
     @Override
     public ProductEntity convertToEntity(ProductDTO dto) {
         ProductEntity entity = new ProductEntity();
