@@ -27,7 +27,8 @@
       {{ position.product.category.name}}
     </td>
     <td>
-      <button matTooltip="Aktualizuj stan magazynowy" mat-button><mat-icon>edit</mat-icon></button>
+      <button (click)="removePosition(position.id, rowIndex)" matTooltip="Usuń pozycję" mat-button><mat-icon>delete</mat-icon></button>
+      <button [routerLink]="['/', 'admin-panel', 'warehouse', 'edit', position.id]" matTooltip="Edytuj pozycję" mat-button><mat-icon>edit</mat-icon></button>
     </td>
   </tr>
 </table>

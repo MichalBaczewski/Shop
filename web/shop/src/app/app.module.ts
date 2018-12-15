@@ -20,7 +20,7 @@ import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve
 import {ProductService} from "./shared/service/product.service";
 import {ProductResolve, ProductsResolve} from "./shared/resolve/product.resolve";
 import {WarehouseService} from "./shared/service/warehouse.service";
-import {WarehouseResolve} from "./shared/resolve/warehouse.resolve";
+import {WarehousePositionResolve, WarehouseResolve} from "./shared/resolve/warehouse.resolve";
 import { EditWarehousePositionComponent } from './admin-panel/edit-warehouse-position/edit-warehouse-position.component';
 
 @NgModule({
@@ -52,7 +52,8 @@ import { EditWarehousePositionComponent } from './admin-panel/edit-warehouse-pos
     ProductsResolve,
     ProductResolve,
     WarehouseService,
-    WarehouseResolve
+    WarehouseResolve,
+    WarehousePositionResolve
   ],
   bootstrap: [MainComponent]
 })

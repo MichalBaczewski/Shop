@@ -10,7 +10,8 @@ import {OrdersComponent} from "./admin-panel/orders/orders.component";
 import {WarehouseComponent} from "./admin-panel/warehouse/warehouse.component";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
 import {ProductResolve, ProductsResolve} from "./shared/resolve/product.resolve";
-import {WarehouseResolve} from "./shared/resolve/warehouse.resolve";
+import {WarehousePositionResolve, WarehouseResolve} from "./shared/resolve/warehouse.resolve";
+import {EditWarehousePositionComponent} from "./admin-panel/edit-warehouse-position/edit-warehouse-position.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,23 @@ const routes: Routes = [
         }
       },
       {
+        path: 'warehouse/add',
+        component: EditWarehousePositionComponent,
+        resolve: {
+          products: ProductsResolve,
+          // productCategories: ProductCategoriesResolve
+        }
+      },
+      {
+        path: 'warehouse/edit/:id',
+        component: EditWarehousePositionComponent,
+        resolve: {
+          products: ProductsResolve,
+          warehousePosition: WarehousePositionResolve,
+          // productCategories: ProductCategoriesResolve
+        }
+      },
+      {
         path: 'products',
         component: ProductsComponent,
         resolve: {
@@ -56,6 +74,7 @@ const routes: Routes = [
           productCategories: ProductCategoriesResolve
         }
       },
+
       {
         path: 'products/edit/:id',
         component: EditProductComponent,

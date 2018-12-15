@@ -19,4 +19,10 @@ export class WarehouseComponent implements OnInit {
     this.positions= this.route.snapshot.data['positions'];
   }
 
+  removePosition(positionId: number, index: number) {
+    this.warehouseService.removePosition(positionId).subscribe(() => {
+      this.positions.splice(index, 1);
+    });
+  }
+
 }

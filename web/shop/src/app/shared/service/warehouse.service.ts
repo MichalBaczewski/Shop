@@ -3,7 +3,6 @@ import {WarehouseModel} from "../model/warehouse.model";
 import {Observable, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
-import {ProductModel} from "../model/product.model";
 
 @Injectable({
   providedIn: 'root'
