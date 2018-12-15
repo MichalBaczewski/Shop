@@ -10,7 +10,7 @@ export class WarehouseResolve implements Resolve<any> {
   }
 
   resolve(){
-    return this.warehouseService.getProducts();
+    return this.warehouseService.getPositions();
   }
 
 }
