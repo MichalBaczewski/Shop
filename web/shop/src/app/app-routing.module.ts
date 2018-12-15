@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
 import {ProductsComponent} from "./admin-panel/products/products.component";
@@ -10,6 +10,8 @@ import {OrdersComponent} from "./admin-panel/orders/orders.component";
 import {WarehouseComponent} from "./admin-panel/warehouse/warehouse.component";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
 import {ProductResolve, ProductsResolve} from "./shared/resolve/product.resolve";
+import {WarehousePositionResolve, WarehouseResolve} from "./shared/resolve/warehouse.resolve";
+import {EditWarehousePositionComponent} from "./admin-panel/edit-warehouse-position/edit-warehouse-position.component";
 
 const routes: Routes = [
   {
@@ -36,7 +38,35 @@ const routes: Routes = [
       },
       {
         path: 'warehouse',
-        component: WarehouseComponent
+        component: WarehouseComponent,
+        resolve: {
+          warehouse: WarehouseResolve
+        }
+      },
+      {
+        path: 'warehouse/add',
+        component: EditWarehousePositionComponent,
+        resolve:
+          {
+            products: ProductsResolve
+          }
+      },
+      {
+        path: 'warehouse/add:id',
+        component: EditWarehousePositionComponent,
+        resolve:
+          {
+            products: ProductsResolve,
+            warehousePosition: WarehousePositionResolve
+          }
+      },
+      {
+        path: 'warehouse/edit/:id',
+        component: EditWarehousePositionComponent,
+        resolve: {
+          warehousePosition: WarehousePositionResolve,
+          products: ProductsResolve
+        }
       },
       {
         path: 'products',
@@ -50,7 +80,7 @@ const routes: Routes = [
         component: EditProductComponent,
         resolve: {
           productCategories: ProductCategoriesResolve
-      }
+        }
       },
       {
         path: 'products/edit/:id',
@@ -96,4 +126,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

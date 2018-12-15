@@ -3,8 +3,6 @@ import {ProductModel} from "../model/product.model";
 import {Observable, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
-import {ProductCategoryModel} from "../model/product-category.model";
-
 
 @Injectable({
   providedIn: 'root'

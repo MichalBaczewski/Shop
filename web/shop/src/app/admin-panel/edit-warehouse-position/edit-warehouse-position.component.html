@@ -1,0 +1,31 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Pozycja magazynowa</mat-card-title>
+    <mat-card-subtitle>Dodawanie / Edycja</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="form-section">
+      <form>
+        <mat-form-field>
+          <mat-select [(ngModel)]="warehousePosition.product.id" name="product_id" placeholder="Nazwa produktu">
+            <mat-option *ngFor="let product of products" [value]="product.id">
+              {{product.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="warehousePosition.price" name="price" matInput placeholder="Cena produktu">
+        </mat-form-field>
+        <mat-form-field>
+          <input [(ngModel)]="warehousePosition.quantity" name="quantity" matInput placeholder="ilość">
+        </mat-form-field>
+      </form>
+    </section>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-row">
+      <button (click)="back()" mat-flat-button color="accent">Wróć</button>
+      <button (click)="saveWarehousePosition()" mat-flat-button color="primary">Zapisz</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

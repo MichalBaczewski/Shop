@@ -1,5 +1,5 @@
 <section class="action-buttons">
-  <button mat-stroked-button color="primary" routerLink="add">Dodaj produkt</button>
+  <button mat-stroked-button color="primary" routerLink="add">Dodaj dostawę</button>
 </section>
 <table class="table-details">
   <tr>
@@ -9,21 +9,22 @@
     <th>Ilość w magazynie</th>
     <th>Akcje</th>
   </tr>
-  <tr *ngFor="let product of products; let rowIndex = index">
+  <tr *ngFor="let warehousePosition of warehousePositions; let rowIndex = index">
     <td>
-      {{ product.id }}
+      {{ warehousePosition.id }}
     </td>
     <td>
-      {{ product.name }}
+      {{ warehousePosition.product.name}}
     </td>
     <td>
-      {{ product.price }}
+      {{ warehousePosition.price }}
     </td>
     <td>
-      {{ product.count }}
+      {{ warehousePosition.quantity }}
     </td>
     <td>
-      <button matTooltip="Aktualizuj stan magazynowy" mat-button><mat-icon>edit</mat-icon></button>
+      <button (click)="removeWarehousePosition(warehousePosition.id, rowIndex)" matTooltip="Usuń pozycję magazynową" mat-button><mat-icon>delete</mat-icon></button>
+      <button [routerLink]="['/', 'admin-panel', 'warehouse', 'edit', warehousePosition.id]" matTooltip="Edytuj Produkt" mat-button><mat-icon>edit</mat-icon></button>
     </td>
   </tr>
 </table>

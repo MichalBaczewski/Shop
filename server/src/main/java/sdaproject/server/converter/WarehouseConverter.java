@@ -34,6 +34,6 @@ public class WarehouseConverter implements Converter<WarehouseEntity, WarehouseD
         dto.setQuantity(entity.getQuantity());
         dto.setPrice(entity.getPrice());
         dto.setProduct(productConverter.convertToDto(entity.getProduct()));
-        return null;
+        return dto;
     }
 }
