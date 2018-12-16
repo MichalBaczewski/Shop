@@ -15,6 +15,8 @@ import {EditWarehousePositionComponent} from "./admin-panel/edit-warehouse-posit
 import {LoginComponent} from "./login/login.component";
 import {GuestGuard} from "./shared/guard/guest.guard";
 import {CartComponent} from "./cart/cart.component";
+import {NewOrderComponent} from "./new-order/new-order.component";
+import {LoginGuard} from "./shared/guard/login.guard";
 
 const routes: Routes = [
   {
@@ -38,7 +40,11 @@ const routes: Routes = [
     path: 'cart',
     component: CartComponent
   },
-
+  {
+    path: 'new-order',
+    component: NewOrderComponent,
+    canActivate: [LoginGuard]
+  },
   {
     path: 'admin-panel',
     component: AdminPanelComponent,
