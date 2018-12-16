@@ -19,9 +19,9 @@ public class UserConverter implements Converter<UserEntity, UserDTO> {
         UserDTO dto = new UserDTO();
 
         dto.setId(entity.getId());
-        dto.setEmail(entity.getEmail());
         dto.setName(entity.getName());
         dto.setLastname(entity.getLastname());
+        dto.setEmail(entity.getEmail());
         dto.setRoles(entity.getRoles().stream().map(role -> role.getRole()).collect(Collectors.toList()));
 
         return dto;
