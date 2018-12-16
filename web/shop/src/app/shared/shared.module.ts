@@ -19,6 +19,7 @@ import {
   MatToolbarModule,
   MatTooltipModule, MatTreeModule
 } from "@angular/material";
+import {HasAnyRoleDirective} from "./directive/has-any-role.directive";
 
 @NgModule({
   imports: [
@@ -62,7 +63,9 @@ import {
     MatTreeModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  declarations: [],
+  declarations: [
+    HasAnyRoleDirective
+  ],
   providers: [],
   exports: [
     FormsModule,
@@ -101,7 +104,8 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    HasAnyRoleDirective
   ]
 })
 export class SharedModule { }

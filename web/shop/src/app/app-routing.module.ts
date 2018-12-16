@@ -12,6 +12,9 @@ import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve
 import {ProductResolve, ProductsResolve} from "./shared/resolve/product.resolve";
 import {WarehousePositionResolve, WarehouseResolve} from "./shared/resolve/warehouse.resolve";
 import {EditWarehousePositionComponent} from "./admin-panel/edit-warehouse-position/edit-warehouse-position.component";
+import {LoginComponent} from "./login/login.component";
+import {GuestGuard} from "./shared/guard/guest.guard";
+import {CartComponent} from "./cart/cart.component";
 
 const routes: Routes = [
   {
@@ -21,8 +24,21 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    resolve: {
+      items: WarehouseResolve
+    }
   },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [GuestGuard]
+  },
+  {
+    path: 'cart',
+    component: CartComponent
+  },
+
   {
     path: 'admin-panel',
     component: AdminPanelComponent,

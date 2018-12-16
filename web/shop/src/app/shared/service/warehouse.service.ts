@@ -16,7 +16,7 @@ export class WarehouseService {
   }
 
   public getPositions(): Observable<Array<WarehouseModel>> {
-    return this.http.get("/api/warehouse").pipe(map((response: Array<WarehouseModel>) => {
+    return this.http.get("/api/warehouse/open").pipe(map((response: Array<WarehouseModel>) => {
       this.positions = response;
       this.positionsStream.next(this.positions);
       return this.positions;
@@ -24,7 +24,7 @@ export class WarehouseService {
   }
 
   public getPosition(id: number): Observable<WarehouseModel> {
-    return this.http.get("/api/warehouse/" + id).pipe(map((response: WarehouseModel) => {
+    return this.http.get("/api/warehouse/open/" + id).pipe(map((response: WarehouseModel) => {
       return response;
     }));
   }

@@ -15,12 +15,12 @@ public abstract class AbstractResource<ENTITY extends AbstractEntity, DTO extend
 
     public abstract AbstractService<ENTITY, DTO> getService();
 
-    @GetMapping("/{id}")
+    @GetMapping("/open/{id}")
     public DTO getById(@PathVariable("id") Long id) {
         return getService().findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/open")
     public Collection<DTO> getAll() {
         return getService().getAll();
     }

@@ -1,3 +1,23 @@
-<p>
-  home works!
-</p>
+<div class="card-deck-container">
+  <section class="card-item-wrapper" *ngFor="let item of items">
+    <mat-card class="card-item">
+      <mat-card-header>
+        <mat-card-title>{{ item.product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ item.product.category.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://i1.wp.com/chartcons.com/wp-content/uploads/Funny-Cat-Jokes2.jpg?resize=1021%2C576&ssl=1" [alt]="item.product.name">
+      <mat-card-content>
+        <section class="form-section">
+          <h3 class="price">{{ item.price | number : '1.2-2' }} zł</h3>
+        </section>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="button-row">
+          <button mat-flat-button color="accent">Więcej</button>
+          <button *ngIf="!isInCart(item.id)" (click)="addToCart(item)" mat-flat-button color="primary">Kup</button>
+          <button *ngIf="isInCart(item.id)" [routerLink]="['/', 'cart']" mat-flat-button color="primary">Koszyk</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+</div>

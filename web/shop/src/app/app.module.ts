@@ -22,6 +22,15 @@ import {ProductResolve, ProductsResolve} from "./shared/resolve/product.resolve"
 import {WarehouseService} from "./shared/service/warehouse.service";
 import {WarehousePositionResolve, WarehouseResolve} from "./shared/resolve/warehouse.resolve";
 import { EditWarehousePositionComponent } from './admin-panel/edit-warehouse-position/edit-warehouse-position.component';
+import { LoginComponent } from './login/login.component';
+import {GuestGuard} from "./shared/guard/guest.guard";
+import {LoginGuard} from "./shared/guard/login.guard";
+import {AdminGuard} from "./shared/guard/admin.guard";
+import {AuthService} from "./shared/service/auth.service";
+import {AppService} from "./shared/service/app.service";
+import { CartComponent } from './cart/cart.component';
+import { NewOrderComponent } from './new-order/new-order.component';
+import {CartService} from "./shared/service/cart.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +44,10 @@ import { EditWarehousePositionComponent } from './admin-panel/edit-warehouse-pos
     EditProductComponent,
     OrdersComponent,
     WarehouseComponent,
-    EditWarehousePositionComponent
+    EditWarehousePositionComponent,
+    LoginComponent,
+    CartComponent,
+    NewOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +65,13 @@ import { EditWarehousePositionComponent } from './admin-panel/edit-warehouse-pos
     ProductResolve,
     WarehouseService,
     WarehouseResolve,
-    WarehousePositionResolve
+    WarehousePositionResolve,
+    GuestGuard,
+    LoginGuard,
+    AdminGuard,
+    AuthService,
+    AppService,
+    CartService
   ],
   bootstrap: [MainComponent]
 })

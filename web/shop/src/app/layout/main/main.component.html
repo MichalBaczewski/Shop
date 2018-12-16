@@ -2,12 +2,19 @@
   <mat-toolbar-row>
     <span class="logo" routerLink="home">My shop</span>
     <span class="spacer"></span>
-    <button matTooltip="Przejdź do koszyka" mat-icon-button>
+    <button routerLink="cart" matTooltip="Przejdź do koszyka" mat-icon-button>
       <mat-icon>shopping_cart</mat-icon>
     </button>
-    <button routerLink="admin-panel" matTooltip="Zaloguj się" mat-icon-button>
+    <button *hasAnyRole="['ROLE_ADMIN']" routerLink="admin-panel" matTooltip="Panel admina" mat-icon-button>
+      <mat-icon>settings</mat-icon>
+    </button>
+    <button *ngIf="!isLoggedIn()" routerLink="login" matTooltip="Zaloguj się" mat-icon-button>
       <mat-icon>exit_to_app</mat-icon>
+    </button>
+    <button *ngIf="isLoggedIn()" (click)="logout()" matTooltip="Wyloguj się" mat-icon-button>
+      <mat-icon>power_settings_newp</mat-icon>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <app-content></app-content>
+
