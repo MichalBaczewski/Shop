@@ -1,0 +1,60 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Podsumowanie zamówienia</mat-card-title>
+    <mat-card-subtitle>Informacje o składanym zamoówieniu</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="cart-table">
+      <table class="table-details">
+        <tr>
+          <th>Id przedmiotu</th>
+          <th>Nazwa</th>
+          <th>Ilość</th>
+          <th>Cena za sztukę</th>
+          <th>Cena w sumie</th>
+        </tr>
+        <tr *ngFor="let item of cart.items; let rowIndex = index">
+          <td>
+            {{ item.warehouseItem.id }}
+          </td>
+          <td>
+            {{ item.warehouseItem.product.name }}
+          </td>
+          <td>
+            {{ item.quantity }}
+          </td>
+          <td>
+            {{ item.warehouseItem.price | number : '1.2-2' }} zł
+          </td>
+          <td>
+            {{ item.warehouseItem.price * item.quantity | number : '1.2-2' }} zł
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            {{ cartSummary() | number : '1.2-2' }} zł
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="user-data">
+      <h3>Dane klienta</h3>
+      <ul>
+        <li>Imię: {{ user.name }}</li>
+        <li>Nazwisko: {{ user.lastname }}</li>
+        <li>E-mail: {{ user.email }}</li>
+      </ul>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-row">
+      <button (click)="back()" mat-flat-button color="accent">Przerwij</button>
+      <button mat-flat-button color="primary">Zamów i zapłać</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+

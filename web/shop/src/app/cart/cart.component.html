@@ -1,0 +1,50 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Twój koszyk</mat-card-title>
+    <mat-card-subtitle>Lista produktów w koszyku</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="cart-table">
+      <table class="table-details">
+        <tr>
+          <th>Id przedmiotu</th>
+          <th>Nazwa</th>
+          <th>Ilość</th>
+          <th>Cena za sztukę</th>
+          <th>Cena w sumie</th>
+          <th>Akcje</th>
+        </tr>
+        <tr *ngFor="let item of cart.items; let rowIndex = index">
+          <td>
+            {{ item.warehouseItem.id }}
+          </td>
+          <td>
+            {{ item.warehouseItem.product.name }}
+          </td>
+          <td>
+            <mat-form-field class="half-width">
+              <input type="number" [(ngModel)]="item.quantity" (change)="updateCart()" name="quantity" matInput>
+            </mat-form-field>
+          </td>
+          <td>
+            {{ item.warehouseItem.price | number : '1.2-2' }} zł
+          </td>
+          <td>
+            {{ item.warehouseItem.price * item.quantity | number : '1.2-2' }} zł
+          </td>
+          <td>
+            <button (click)="removeFromCart(item.warehouseItem.id)" matTooltip="Usuń produkt z koszyka" mat-button><mat-icon>delete</mat-icon></button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-row">
+      <h3 class="summary">Wartość zamówienia: {{ cartSummary() | number : '1.2-2' }} zł</h3>
+      <button (click)="clearCart()" [disabled]="isEmptyCart()" mat-flat-button color="accent">Wyczyść koszyk</button>
+      <button [routerLink]="['/', 'new-order']" [disabled]="isEmptyCart()" mat-flat-button color="primary">Zamów</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
